@@ -1,0 +1,148 @@
+<svg width="600" height="800" viewBox="0 0 600 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Studio Background Gradient -->
+    <linearGradient id="studioBg" x1="300" y1="0" x2="300" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#DFE3E8" />
+      <stop offset="50%" stopColor="#CCD2D9" />
+      <stop offset="100%" stopColor="#B8BFC8" />
+    </linearGradient>
+
+    <!-- Vignette Glow -->
+    <radialGradient id="studioGlow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.45" />
+      <stop offset="100%" stopColor="#000000" stopOpacity="0.15" />
+    </radialGradient>
+
+    <!-- Suit Shadow Gradients -->
+    <linearGradient id="suitGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stopColor="#1E2024" />
+      <stop offset="50%" stopColor="#111215" />
+      <stop offset="100%" stopColor="#08090A" />
+    </linearGradient>
+
+    <linearGradient id="lapelGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stopColor="#2A2C32" />
+      <stop offset="100%" stopColor="#121316" />
+    </linearGradient>
+
+    <!-- Skin Tone Gradients -->
+    <linearGradient id="skinBase" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stopColor="#E2A67C" />
+      <stop offset="70%" stopColor="#D2946A" />
+      <stop offset="100%" stopColor="#C4845B" />
+    </linearGradient>
+
+    <!-- Tie Pattern -->
+    <pattern id="tiePattern" width="12" height="12" patternUnits="userSpaceOnUse">
+      <rect width="12" height="12" fill="#2D3035" />
+      <line x1="0" y1="0" x2="12" y2="12" stroke="#90959E" strokeWidth="2.5" />
+      <line x1="12" y1="0" x2="0" y2="12" stroke="#484C54" strokeWidth="1.5" />
+      <rect x="3" y="3" width="6" height="6" fill="#D2D6DC" opacity="0.65" />
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="800" fill="url(#studioBg)" />
+  <rect width="600" height="800" fill="url(#studioGlow)" />
+
+  <!-- Shoulders &amp; Suit Torso -->
+  <path d="M70 800 C90 580 140 330 200 290 C220 280 250 285 270 285 L330 285 C350 285 380 280 400 290 C460 330 510 580 530 800 Z" fill="url(#suitGrad)" />
+
+  <!-- White Dress Shirt V-Neck -->
+  <polygon points="265,280 335,280 300,430" fill="#FFFFFF" />
+  <polygon points="275,280 300,320 280,350 260,285" fill="#E8ECF0" />
+  <polygon points="325,280 300,320 320,350 340,285" fill="#F4F6F8" />
+
+  <!-- Shirt Collar Points -->
+  <polygon points="255,275 285,350 300,340 270,270" fill="#FFFFFF" stroke="#D0D6DC" strokeWidth="1.5" />
+  <polygon points="345,275 315,350 300,340 330,270" fill="#FFFFFF" stroke="#D0D6DC" strokeWidth="1.5" />
+
+  <!-- Patterned Tie -->
+  <!-- Knot -->
+  <polygon points="288,335 312,335 317,370 283,370" fill="url(#tiePattern)" stroke="#111215" strokeWidth="1.5" />
+  <!-- Body -->
+  <polygon points="285,370 315,370 332,600 300,640 268,600" fill="url(#tiePattern)" stroke="#111215" strokeWidth="1.5" />
+
+  <!-- Suit Lapels (Left and Right) -->
+  <!-- Left Lapel -->
+  <path d="M200 290 L275 420 L270 540 L170 520 C180 420 190 350 200 290 Z" fill="url(#lapelGrad)" stroke="#0E0F12" strokeWidth="1.5" />
+  <polygon points="230,340 275,420 240,435" fill="#24262B" />
+
+  <!-- Right Lapel -->
+  <path d="M400 290 L325 420 L330 540 L430 520 C420 420 410 350 400 290 Z" fill="url(#lapelGrad)" stroke="#0E0F12" strokeWidth="1.5" />
+  <polygon points="370,340 325,420 360,435" fill="#24262B" />
+
+  <!-- Suit Front Center &amp; Buttons -->
+  <line x1="300" y1="535" x2="300" y2="760" stroke="#000000" strokeWidth="3" />
+  <circle cx="300" cy="545" r="9" fill="#1C1D21" stroke="#3D4047" strokeWidth="2.5" />
+  <circle cx="300" cy="625" r="9" fill="#1C1D21" stroke="#3D4047" strokeWidth="2.5" />
+
+  <!-- Arms &amp; Clasped Hands -->
+  <!-- Left Arm / Sleeve -->
+  <path d="M120 620 C140 710 200 750 240 760 L240 710 C210 690 170 650 155 600 Z" fill="#141518" />
+  <!-- Right Arm / Sleeve -->
+  <path d="M480 620 C460 710 400 750 360 760 L360 710 C390 690 430 650 445 600 Z" fill="#141518" />
+
+  <!-- Hands Clasped at Waist -->
+  <rect x="235" y="730" width="130" height="60" rx="20" fill="url(#skinBase)" />
+  <!-- Silver Wristwatch on Left Wrist -->
+  <rect x="350" y="715" width="28" height="24" rx="5" fill="#C2C8D0" stroke="#7A828E" strokeWidth="2" />
+  <circle cx="364" cy="727" r="8" fill="#1A1C20" stroke="#E2E6EA" strokeWidth="1.5" />
+
+  <!-- Neck -->
+  <path d="M262 210 L262 295 C275 310 325 310 338 295 L338 210 Z" fill="url(#skinBase)" />
+  <!-- Neck Shadow under chin -->
+  <path d="M265 210 C290 240 310 240 335 210 C335 230 265 230 265 210 Z" fill="#9C6442" opacity="0.4" />
+
+  <!-- Head Shape -->
+  <path d="M245 130 C240 60 360 60 355 130 C358 190 350 225 300 228 C250 225 242 190 245 130 Z" fill="url(#skinBase)" />
+
+  <!-- Ears -->
+  <ellipse cx="242" cy="145" rx="8" ry="17" fill="#D2946A" />
+  <ellipse cx="358" cy="145" rx="8" ry="17" fill="#D2946A" />
+
+  <!-- Hair (Wavy / Curly Dark Hair) -->
+  <path d="M240 120 C235 60 260 35 300 35 C340 35 365 60 360 120 C350 80 340 65 300 65 C260 65 250 80 240 120 Z" fill="#1A1817" />
+  <path d="M244 110 C242 75 270 50 300 50 C330 50 358 75 356 110 C345 85 330 75 300 75 C270 75 255 85 244 110 Z" fill="#2E2825" />
+  <!-- Sideburns -->
+  <rect x="242" y="115" width="6" height="25" rx="2" fill="#1E1C1A" />
+  <rect x="352" y="115" width="6" height="25" rx="2" fill="#1E1C1A" />
+
+  <!-- Facial Features -->
+  <!-- Eyebrows -->
+  <path d="M260 118 Q275 113 285 118" stroke="#1F1D1B" strokeWidth="3.5" strokeLinecap="round" />
+  <path d="M315 118 Q325 113 340 118" stroke="#1F1D1B" strokeWidth="3.5" strokeLinecap="round" />
+
+  <!-- Eyes -->
+  <ellipse cx="273" cy="128" rx="8" ry="5.5" fill="#FFFFFF" />
+  <circle cx="274" cy="128" r="4" fill="#3D291D" />
+  <circle cx="275" cy="126" r="1.5" fill="#FFFFFF" />
+  <path d="M265 125 Q274 121 282 125" stroke="#222" strokeWidth="1.5" />
+
+  <ellipse cx="327" cy="128" rx="8" ry="5.5" fill="#FFFFFF" />
+  <circle cx="326" cy="128" r="4" fill="#3D291D" />
+  <circle cx="327" cy="126" r="1.5" fill="#FFFFFF" />
+  <path d="M318 125 Q326 121 335 125" stroke="#222" strokeWidth="1.5" />
+
+  <!-- Rectangular Eyeglasses (Signature Look) -->
+  <rect x="258" y="118" width="34" height="20" rx="3.5" fill="none" stroke="#2B2D33" strokeWidth="2.5" />
+  <rect x="308" y="118" width="34" height="20" rx="3.5" fill="none" stroke="#2B2D33" strokeWidth="2.5" />
+  <line x1="292" y1="124" x2="308" y2="124" stroke="#2B2D33" strokeWidth="2.5" />
+  <line x1="258" y1="123" x2="242" y2="126" stroke="#2B2D33" strokeWidth="2" />
+  <line x1="342" y1="123" x2="358" y2="126" stroke="#2B2D33" strokeWidth="2" />
+  <!-- Glass reflections -->
+  <line x1="262" y1="121" x2="278" y2="135" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.6" strokeLinecap="round" />
+  <line x1="312" y1="121" x2="328" y2="135" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.6" strokeLinecap="round" />
+
+  <!-- Nose -->
+  <path d="M300 125 L300 155 Q300 162 305 162 Q310 162 308 156" fill="none" stroke="#B0714A" strokeWidth="2" strokeLinecap="round" />
+  <ellipse cx="293" cy="158" rx="3.5" ry="2" fill="#9C6442" opacity="0.4" />
+  <ellipse cx="307" cy="158" rx="3.5" ry="2" fill="#9C6442" opacity="0.4" />
+
+  <!-- Lips -->
+  <path d="M285 180 Q300 183 315 180" stroke="#A85743" strokeWidth="2.5" strokeLinecap="round" />
+  <path d="M288 185 Q300 190 312 185" stroke="#A85743" strokeWidth="2" strokeLinecap="round" />
+
+  <!-- Chin &amp; Jaw contour -->
+  <path d="M260 170 Q255 205 300 216 Q345 205 340 170" fill="none" stroke="#B0714A" strokeWidth="1" opacity="0.5" />
+</svg>
