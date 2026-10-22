@@ -6,25 +6,13 @@
             <div class="lg:col-span-6 relative">
                 <div class="relative rounded-3xl sm:rounded-[36px] overflow-hidden shadow-2xl border border-gray-100 group bg-gray-100">
                     <img id="founderPhoto" 
-                         src="assets/img/about-portrait.jpg?v=<?= file_exists(__DIR__ . '/../assets/img/about-portrait.jpg') ? filemtime(__DIR__ . '/../assets/img/about-portrait.jpg') : time() ?>" 
+                         src="<?= htmlspecialchars(getFounderPhotoSrc()) ?>" 
                          onerror="this.onerror=null; this.src='assets/img/saswata-roy.svg';" 
                          alt="Saswata Roy - AMFI-Registered Mutual Fund Distributor" 
                          class="w-full h-[460px] sm:h-[520px] object-cover object-top transition-transform duration-700 group-hover:scale-105">
 
                     <!-- Gradient Shadow Overlay -->
                     <div class="absolute inset-0 bg-gradient-to-t from-[#071D29]/80 via-transparent to-transparent pointer-events-none"></div>
-
-                    <!-- Photo Upload and Reset Controls -->
-                    <div class="absolute top-4 right-4 z-20 flex items-center gap-2">
-                        <input type="file" id="founderPhotoInput" accept="image/*" class="hidden" onchange="handleFounderPhotoUpload(event)">
-                        <button type="button" onclick="document.getElementById('founderPhotoInput').click()" title="Upload or reload your custom portrait photo" class="px-3 py-1.5 rounded-full bg-[#071D29]/80 hover:bg-[#071D29] text-white text-xs font-semibold backdrop-blur-md border border-white/20 shadow-lg flex items-center gap-1.5 transition-all opacity-85 group-hover:opacity-100">
-                            <i data-lucide="camera" class="w-3.5 h-3.5 text-[#C9F24A]"></i>
-                            <span>Update Photo</span>
-                        </button>
-                        <button type="button" id="resetFounderPhotoBtn" onclick="resetFounderPhoto()" title="Reset to default photo" class="hidden p-1.5 rounded-full bg-white/20 hover:bg-white/30 text-white backdrop-blur-md transition-all">
-                            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
-                        </button>
-                    </div>
 
                     <!-- Credential Pill Overlay -->
                     <div class="absolute bottom-6 left-6 right-6 bg-[#071D29]/95 backdrop-blur-md p-4 rounded-2xl border border-white/20 shadow-xl flex items-center justify-between pointer-events-auto">

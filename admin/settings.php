@@ -6,6 +6,7 @@
 require_once __DIR__ . '/auth_check.php';
 require_once __DIR__ . '/../config/db.php';
 require_once __DIR__ . '/../config/smtp.php';
+require_once __DIR__ . '/../includes/helpers.php';
 
 $pdo = getDBConnection();
 $alert = '';
@@ -18,7 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $action = $_POST['action'] ?? '';
 
-        if ($action === 'save_settings') {
+        if ($action === 'update_photo') {
+            handleAdvisorPhotoUpload($pdo, $alert, $error);
+        } elseif ($action === 'reset_photo') {
+            handleAdvisorPhotoReset($pdo, $alert, $error);
+        } elseif ($action === 'save_settings') {
         $keys = [
             'site_name', 'tagline', 'founder_name', 'founder_designation', 
             'arn_number', 'contact_phone', 'contact_whatsapp', 'contact_email', 'office_location'
@@ -358,6 +363,27 @@ foreach ($stmt->fetchAll() as $row) {
                 <h3 class="text-lg font-bold text-[#092532]">Advisor &amp; Business Coordinates</h3>
             </div>
             <p class="text-xs text-[#607078] mb-6">These values automatically update the public website headers, footer, and booking cards.</p>
+
+            <!-- Advisor Portrait Photo Preview Strip -->
+            <div class="mb-6 p-4 rounded-2xl bg-[#F7F8F5] border border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <img src="<?= htmlspecialchars(getFounderPhotoSrc('../')) ?>" 
+                         onerror="this.onerror=null; this.src='../assets/img/saswata-roy.svg';" 
+                         alt="Advisor Photo" 
+                         class="w-16 h-20 rounded-xl object-cover object-top border-2 border-white shadow-md bg-gray-900 shrink-0">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h4 class="text-xs font-bold text-[#092532] uppercase">Advisor Portrait Photo</h4>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">Active on Frontend</span>
+                        </div>
+                        <p class="text-[11px] text-[#607078] mt-1">Featured in homepage "About Saswata Roy" section and consultation booking cards.</p>
+                    </div>
+                </div>
+                <a href="profile.php#photo-section" class="inline-flex items-center justify-center gap-1.5 text-xs font-bold bg-[#071D29] hover:bg-[#0B2733] text-[#C9F24A] px-4 py-2.5 rounded-xl transition-all shadow-sm shrink-0">
+                    <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+                    <span>Update Photo in Profile &rarr;</span>
+                </a>
+            </div>
 
             <form method="POST" action="settings.php" class="space-y-4">
                 <?= csrfInput() ?>

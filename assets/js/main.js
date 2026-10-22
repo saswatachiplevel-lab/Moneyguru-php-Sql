@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start Market Ticker random simulation
     startTickerSimulation();
 
-    // Initialize Advisor Photo from cache if custom photo set
-    initFounderPhoto();
+    // Clean up any legacy localStorage demo photo override
+    cleanupLegacyPhotoCache();
 
     // Scroll listener for Navbar
     window.addEventListener('scroll', handleNavbarScroll);
@@ -716,64 +716,16 @@ function escapeHtml(str) {
 }
 
 // ==========================================
-// 14. ADVISOR PHOTO MANAGEMENT (Matching Reference App)
+// 14. ADVISOR PHOTO CLEANUP
+// Photo management is strictly handled via Admin Panel
 // ==========================================
-function initFounderPhoto() {
-    const cachedPhoto = localStorage.getItem('moneyguru_advisor_photo');
-    const founderPhotoEl = document.getElementById('founderPhoto');
-    const resetBtn = document.getElementById('resetFounderPhotoBtn');
-    const contactPhotoEl = document.getElementById('contactFounderPhoto');
-
-    if (cachedPhoto && founderPhotoEl) {
-        founderPhotoEl.src = cachedPhoto;
-        if (resetBtn) resetBtn.classList.remove('hidden');
-        if (contactPhotoEl) contactPhotoEl.src = cachedPhoto;
-    }
-}
-
-function handleFounderPhotoUpload(event) {
-    const file = event.target.files && event.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        const dataUrl = e.target.result;
-        if (dataUrl) {
-            try {
-                localStorage.setItem('moneyguru_advisor_photo', dataUrl);
-            } catch (err) {
-                console.warn('Could not cache photo to localStorage:', err);
-            }
-            const founderPhotoEl = document.getElementById('founderPhoto');
-            const resetBtn = document.getElementById('resetFounderPhotoBtn');
-            const contactPhotoEl = document.getElementById('contactFounderPhoto');
-
-            if (founderPhotoEl) founderPhotoEl.src = dataUrl;
-            if (resetBtn) resetBtn.classList.remove('hidden');
-            if (contactPhotoEl) contactPhotoEl.src = dataUrl;
+function cleanupLegacyPhotoCache() {
+    try {
+        if (localStorage.getItem('moneyguru_advisor_photo')) {
+            localStorage.removeItem('moneyguru_advisor_photo');
         }
-    };
-    reader.readAsDataURL(file);
-}
-
-function resetFounderPhoto() {
-    localStorage.removeItem('moneyguru_advisor_photo');
-    const founderPhotoEl = document.getElementById('founderPhoto');
-    const resetBtn = document.getElementById('resetFounderPhotoBtn');
-    const fileInput = document.getElementById('founderPhotoInput');
-    const contactPhotoEl = document.getElementById('contactFounderPhoto');
-
-    if (founderPhotoEl) {
-        founderPhotoEl.src = 'assets/img/about-portrait.jpg?v=' + Date.now();
-    }
-    if (contactPhotoEl) {
-        contactPhotoEl.src = 'assets/img/about-portrait.jpg?v=' + Date.now();
-    }
-    if (resetBtn) {
-        resetBtn.classList.add('hidden');
-    }
-    if (fileInput) {
-        fileInput.value = '';
+    } catch (e) {
+        // Silently catch storage errors in private/sandboxed modes
     }
 }
 

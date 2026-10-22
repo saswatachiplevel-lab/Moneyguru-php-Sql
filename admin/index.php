@@ -4,6 +4,7 @@
  */
 require_once __DIR__ . '/auth_check.php';
 require_once __DIR__ . '/../config/db.php';
+require_once __DIR__ . '/../includes/helpers.php';
 
 $pdo = getDBConnection();
 
@@ -92,11 +93,26 @@ $recentPartners = $pdo->query("SELECT * FROM `partner_inquiries` ORDER BY `id` D
         
         <!-- Welcome Banner -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-gray-200/90 shadow-sm">
-            <div>
-                <h2 class="text-2xl font-black text-[#092532]">Welcome, <?= htmlspecialchars($_SESSION['admin_name'] ?? 'Saswata') ?>!</h2>
-                <p class="text-xs text-[#607078] mt-1">Here is a real-time summary of incoming client consultations and institutional proposals.</p>
+            <div class="flex items-center gap-4">
+                <div class="relative group shrink-0">
+                    <img src="<?= htmlspecialchars(getFounderPhotoSrc('../')) ?>" 
+                         onerror="this.onerror=null; this.src='../assets/img/saswata-roy.svg';" 
+                         alt="Advisor Photo" 
+                         class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl object-cover object-top border-2 border-[#C9F24A]/70 shadow-md bg-gray-900 transition-transform duration-300 group-hover:scale-105">
+                    <a href="profile.php#photo-section" class="absolute -bottom-1 -right-1 bg-[#071D29] hover:bg-[#123B43] text-[#C9F24A] p-1 rounded-lg border border-[#C9F24A]/40 shadow transition-all" title="Update portrait photo">
+                        <i data-lucide="camera" class="w-3 h-3"></i>
+                    </a>
+                </div>
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-black text-[#092532]">Welcome, <?= htmlspecialchars($_SESSION['admin_name'] ?? 'Saswata') ?>!</h2>
+                    <p class="text-xs text-[#607078] mt-1">Here is a real-time summary of incoming client consultations and institutional proposals.</p>
+                </div>
             </div>
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
+                <a href="profile.php#photo-section" class="flex items-center gap-1.5 text-xs font-bold text-[#071D29] bg-[#F7F8F5] hover:bg-gray-100 px-3.5 py-2.5 rounded-xl transition-all border border-gray-200 shadow-sm">
+                    <i data-lucide="camera" class="w-3.5 h-3.5 text-[#071D29]"></i>
+                    <span>Update Photo</span>
+                </a>
                 <a href="consultations.php?export=csv" class="flex items-center gap-1.5 text-xs font-bold text-[#071D29] bg-[#C9F24A] hover:bg-[#D9F77A] px-4 py-2.5 rounded-xl transition-all shadow-sm">
                     <i data-lucide="download" class="w-4 h-4"></i>
                     <span>Export CSV</span>

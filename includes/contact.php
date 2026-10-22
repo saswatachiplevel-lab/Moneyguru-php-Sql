@@ -31,7 +31,7 @@ $siteSettings = getSiteSettings();
                     </div>
 
                     <div class="flex items-center gap-4 border-b border-white/10 pb-4">
-                        <img id="contactFounderPhoto" src="assets/img/about-portrait.jpg" onerror="this.onerror=null; this.src='assets/img/saswata-roy.svg';" alt="Saswata Roy" class="w-14 h-14 rounded-2xl object-cover object-top border border-[#C9F24A]/40 shadow-md shrink-0 bg-gray-900">
+                        <img id="contactFounderPhoto" src="<?= htmlspecialchars(getFounderPhotoSrc()) ?>" onerror="this.onerror=null; this.src='assets/img/saswata-roy.svg';" alt="Saswata Roy" class="w-14 h-14 rounded-2xl object-cover object-top border border-[#C9F24A]/40 shadow-md shrink-0 bg-gray-900">
                         <div>
                             <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight">SASWATA ROY</h3>
                             <div class="flex items-center gap-2 mt-1">
